@@ -5,7 +5,12 @@ const nextConfig = {
   },
   images: { 
     unoptimized: true,
-    domains: ['cal.com']
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cal.com',
+      },
+    ],
   },
 };
 
