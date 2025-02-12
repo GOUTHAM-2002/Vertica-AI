@@ -9,6 +9,23 @@ import { useToast } from "@/hooks/use-toast";
 import Image from 'next/image';
 import backgroundImage from '@/lib/img.jpg';
 
+interface CalNamespace {
+  ns: {
+    [key: string]: any;
+  };
+  q: any[];
+  loaded: boolean;
+  (command: string, arg1?: any, arg2?: any): void;
+}
+
+declare global {
+  interface Window {
+    Cal?: CalNamespace;
+  }
+}
+
+export {};
+
 export default function Home() {
   const [isHovered, setIsHovered] = useState(false);
   const [particles, setParticles] = useState<Array<{ id: number; left: string }>>([]);
@@ -57,34 +74,35 @@ export default function Home() {
     },
   ];
 
-  const handleContactClick = () => {
-    Cal("init", "quick-chat", {origin: "https://cal.com"});
-    Cal.ns["quick-chat"]("inline", {
-      elementOrSelector: "#my-cal-inline",
-      config: {
-        layout: "month_view",
-        theme: "dark",
-        styles: {
-          branding: {
-            brandColor: "#3B82F6"
+  const handleCalendarClick = () => {
+    if (typeof window !== 'undefined' && window.Cal) {
+      window.Cal('init', 'quick-chat', {origin: 'https://cal.com'});
+      window.Cal.ns['quick-chat']('inline', {
+        elementOrSelector: '#my-cal-inline',
+        config: {
+          layout: 'month_view',
+          theme: 'dark',
+          styles: {
+            branding: {
+              brandColor: "#3B82F6"
+            }
           }
-        }
-      },
-      calLink: "goutham-n-w41bgf/quick-chat"
-    });
+        },
+        calLink: 'goutham-n-w41bgf/quick-chat',
+      });
 
-    // Show a toast notification
-    toast({
-      title: "Opening Calendar",
-      description: "Please select a convenient time for our meeting.",
-      duration: 3000,
-    });
+      // Show the calendar container
+      const calendarContainer = document.getElementById("my-cal-inline");
+      if (calendarContainer) {
+        calendarContainer.style.display = "block";
+        calendarContainer.classList.add("backdrop-blur-sm", "bg-black/50");
+      }
 
-    // Show the calendar container
-    const calendarContainer = document.getElementById("my-cal-inline");
-    if (calendarContainer) {
-      calendarContainer.style.display = "block";
-      calendarContainer.classList.add("backdrop-blur-sm", "bg-black/50");
+      toast({
+        title: "Opening Calendar",
+        description: "Please select a convenient time for our meeting.",
+        duration: 3000,
+      });
     }
   };
 
@@ -293,7 +311,7 @@ export default function Home() {
             </p>
             <Button
               size="lg"
-              onClick={handleContactClick}
+              onClick={handleCalendarClick}
               className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 text-lg rounded-full hover:scale-105 transition-all duration-300 glow-effect"
             >
               Schedule a Meeting

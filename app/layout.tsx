@@ -7,6 +7,7 @@ import SocialLinks from '@/components/SocialLinks';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://vertica-ai.com'),
   title: 'Vertica AI - Advanced AI Solutions for Business Transformation',
   description: 'Transform your business with custom AI solutions. Vertica AI specializes in AI workflow automation, custom agents, LLM customization, and voice agents. Serving clients globally with proven results in operational efficiency and cost reduction.',
   keywords: 'AI agency, artificial intelligence, workflow automation, AI agents, LLM customization, voice agents, business transformation, custom AI solutions, enterprise AI, AI consulting',
