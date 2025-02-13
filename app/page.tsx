@@ -74,6 +74,33 @@ export default function Home() {
     },
   ];
 
+  const testimonials = [
+    {
+      name: "Sarah Chen",
+      role: "CTO, Metnify",
+      company: "Maleta",
+      content: "Vertica AI helped us build a complex, AI-powered mobile app that works flawlessly on both iOS and Android. Their expertise in AI integration and cost-effective solutions exceeded our expectations. The end result was exactly what we envisioned, but at a fraction of the cost quoted by other agencies.",
+      image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=200&h=200&auto=format&fit=crop",
+      gradient: "from-blue-500 to-purple-500"
+    },
+    {
+      name: "Rafael Santos",
+      role: "Operations Director",
+      company: "RestauraTech Brazil",
+      content: "The end-to-end AI workflow automation system that Vertica AI implemented has transformed our restaurant chain operations. Their solution streamlined everything from inventory management to customer service, resulting in unprecedented efficiency gains across our 50+ locations.",
+      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=200&h=200&auto=format&fit=crop",
+      gradient: "from-purple-500 to-pink-500"
+    },
+    {
+      name: "James Harrison",
+      role: "CEO",
+      company: "TechForge UK",
+      content: "We knew we needed AI integration but didn't know where to start. Vertica AI's comprehensive assessment and implementation strategy increased our productivity by 40% while significantly reducing operational costs. Their expertise in AI transformation was invaluable.",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&h=200&auto=format&fit=crop",
+      gradient: "from-pink-500 to-red-500"
+    }
+  ];
+
   const handleCalendarClick = () => {
     if (typeof window !== 'undefined' && window.Cal) {
       window.Cal('init', 'quick-chat', {origin: 'https://cal.com'});
@@ -227,6 +254,47 @@ export default function Home() {
                   </div>
                   <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
                   <p className="text-muted-foreground">{feature.description}</p>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-20 relative">
+        <div className="cyber-grid absolute inset-0 opacity-10" />
+        <div className="container mx-auto px-4 relative z-10">
+          <h2 className="text-4xl font-bold text-center mb-16 gradient-text">Client Success Stories</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.2 }}
+                className="relative"
+              >
+                <Card className="p-6 h-full bg-secondary/50 backdrop-blur-sm border-0 hover:bg-secondary/60 transition-all duration-300">
+                  <div className="mb-6">
+                    <div className={`w-16 h-16 rounded-full overflow-hidden mb-4 ring-2 ring-offset-2 ring-offset-background ring-${testimonial.gradient}`}>
+                      <Image
+                        src={testimonial.image}
+                        alt={testimonial.name}
+                        width={64}
+                        height={64}
+                        className="object-cover"
+                      />
+                    </div>
+                    <blockquote className="text-muted-foreground italic mb-4">"{testimonial.content}"</blockquote>
+                  </div>
+                  <div className="mt-auto">
+                    <p className="font-semibold">{testimonial.name}</p>
+                    <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                    <p className="text-sm font-medium bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
+                      {testimonial.company}
+                    </p>
+                  </div>
                 </Card>
               </motion.div>
             ))}

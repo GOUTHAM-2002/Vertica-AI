@@ -50,7 +50,7 @@ export default function SocialLinks() {
           <Instagram className="w-6 h-6" />
         </a>
         <a
-          href="https://www.linkedin.com/in/goutham-choudary-322190264/"
+          href="https://www.linkedin.com/company/vertica-ai"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-blue-600 to-blue-500 text-white hover:scale-110 transition-transform duration-200 shadow-lg hover:shadow-blue-500/30"
