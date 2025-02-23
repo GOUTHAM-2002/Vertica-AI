@@ -176,7 +176,7 @@ export default function Home() {
                 transition={{ delay: 0.2 }}
                 className="text-7xl font-bold mb-6 relative"
               >
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 drop-shadow-lg">
                   Vertica AI
                 </span>
               </motion.h1>
@@ -185,22 +185,40 @@ export default function Home() {
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.4 }}
-              className="text-xl text-muted-foreground mb-4 max-w-2xl mx-auto"
+              className="text-xl text-muted-foreground mb-4 max-w-2xl mx-auto leading-relaxed"
             >
-              Elevate your business with custom AI solutions. We don't just implement AI – we revolutionize how your business operates.
+              <span className="text-blue-300 font-medium">Running a business is hard</span>—why do it all manually? At Vertica AI, we build custom AI solutions that <span className="text-purple-300 font-medium">automate the boring stuff</span>, <span className="text-pink-300 font-medium">cut costs</span>, and <span className="text-blue-300 font-medium">scale your business effortlessly</span>. Work smarter, not harder.
             </motion.p>
             <motion.div
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.6 }}
-              className="text-2xl font-light text-blue-400/80 italic"
+              className="relative"
             >
-              <span className="mr-2"></span>
-              Where Innovation Meets Intelligence
-              <span className="ml-2"></span>
+              <h2 className="text-3xl font-semibold italic relative">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-300 via-purple-300 to-pink-300 tracking-wide drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]">
+                  Where Innovation Meets Intelligence
+                </span>
+              </h2>
+            </motion.div>
+            <motion.div
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.8 }}
+              className="mt-8"
+            >
+              <Button
+                size="lg"
+                onClick={handleCalendarClick}
+                className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 text-white px-8 py-6 text-lg rounded-full hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-blue-500/20 border border-blue-400/20 backdrop-blur-sm"
+              >
+                Book a free discovery call
+                <ChevronRight className="ml-2 w-5 h-5" />
+              </Button>
             </motion.div>
           </motion.div>
         </div>
+
 
         {/* Decorative Elements */}
         <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-background to-transparent" />
