@@ -103,19 +103,14 @@ export default function Home() {
 
   const handleCalendarClick = () => {
     if (typeof window !== 'undefined' && window.Cal) {
-      window.Cal('init', 'quick-chat', {origin: 'https://cal.com'});
-      window.Cal.ns['quick-chat']('inline', {
+      window.Cal('init', '30min', {origin: 'https://cal.com'});
+      window.Cal.ns['30min']('inline', {
         elementOrSelector: '#my-cal-inline',
         config: {
           layout: 'month_view',
-          theme: 'dark',
-          styles: {
-            branding: {
-              brandColor: "#3B82F6"
-            }
-          }
+          hideEventTypeDetails: false
         },
-        calLink: 'goutham-n-w41bgf/quick-chat',
+        calLink: 'vertica-ai/30min',
       });
 
       // Show the calendar container
@@ -230,6 +225,84 @@ export default function Home() {
                 <p className="text-muted-foreground">{stat.label}</p>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Business Comparison Section */}
+      <section className="py-20 relative">
+        <div className="cyber-grid absolute inset-0 opacity-10" />
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="grid md:grid-cols-2 gap-12">
+            {/* Traditional Business Side */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              className="relative"
+            >
+              <Card className="p-8 bg-red-500/10 backdrop-blur-sm border-0 hover:bg-red-500/20 transition-all duration-300">
+                <h3 className="text-2xl font-bold mb-6 text-red-400">Bob's Business (Without AI)</h3>
+                <div className="space-y-4">
+                  <div className="flex items-start space-x-3">
+                    <X className="w-6 h-6 text-red-400 mt-1 flex-shrink-0" />
+                    <p className="text-muted-foreground">Spending hours manually sorting through customer emails, missing important ones</p>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <X className="w-6 h-6 text-red-400 mt-1 flex-shrink-0" />
+                    <p className="text-muted-foreground">Coffee-fueled late nights trying to forecast inventory needs</p>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <X className="w-6 h-6 text-red-400 mt-1 flex-shrink-0" />
+                    <p className="text-muted-foreground">Playing phone tag with customers for appointment scheduling</p>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <X className="w-6 h-6 text-red-400 mt-1 flex-shrink-0" />
+                    <p className="text-muted-foreground">Drowning in spreadsheets trying to analyze business trends</p>
+                  </div>
+                  <div className="mt-6 p-4 bg-red-500/5 rounded-lg">
+                    <p className="text-sm text-red-400 italic">
+                      "I haven't seen my family in what feels like weeks... Is this what running a business is supposed to feel like?"
+                    </p>
+                  </div>
+                </div>
+              </Card>
+            </motion.div>
+
+            {/* AI-Enhanced Business Side */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              className="relative"
+            >
+              <Card className="p-8 bg-blue-500/10 backdrop-blur-sm border-0 hover:bg-blue-500/20 transition-all duration-300">
+                <h3 className="text-2xl font-bold mb-6 text-blue-400">Your Business (With Vertica AI)</h3>
+                <div className="space-y-4">
+                  <div className="flex items-start space-x-3">
+                    <Sparkles className="w-6 h-6 text-blue-400 mt-1 flex-shrink-0" />
+                    <p className="text-muted-foreground">AI handles email triage while you sip your morning coffee ☕</p>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <Brain className="w-6 h-6 text-blue-400 mt-1 flex-shrink-0" />
+                    <p className="text-muted-foreground">Predictive AI forecasts inventory needs before you even think about it 🤖</p>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <MessageSquareCode className="w-6 h-6 text-blue-400 mt-1 flex-shrink-0" />
+                    <p className="text-muted-foreground">Automated scheduling system that works while you sleep 😴</p>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <Cpu className="w-6 h-6 text-blue-400 mt-1 flex-shrink-0" />
+                    <p className="text-muted-foreground">Real-time analytics that make sense of your data in seconds 📈</p>
+                  </div>
+                  <div className="mt-6 p-4 bg-blue-500/5 rounded-lg">
+                    <p className="text-sm text-blue-400 italic">
+                      "Just got back from vacation, and my business ran better than ever! Is this what the future feels like?" 🌴
+                    </p>
+                  </div>
+                </div>
+              </Card>
+            </motion.div>
           </div>
         </div>
       </section>
