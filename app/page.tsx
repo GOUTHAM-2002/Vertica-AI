@@ -247,6 +247,53 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Why We Do It Section */}
+      <section className="py-20 relative">
+        <div className="cyber-grid absolute inset-0 opacity-10" />
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="max-w-4xl mx-auto text-center"
+          >
+            <h2 className="text-4xl font-bold mb-12 gradient-text">Why Do We Do It?</h2>
+            <div className="space-y-8">
+              <motion.p
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="text-xl text-muted-foreground leading-relaxed"
+              >
+                Because businesses waste too much time on tasks that <span className="text-blue-400 font-medium">AI can handle better, faster, and cheaper</span>. We believe AI isn't just for tech giants—it's for every business that wants to scale without burning out.
+              </motion.p>
+              
+              <motion.p
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                className="text-xl text-muted-foreground leading-relaxed"
+              >
+                Our mission? To replace <span className="text-purple-400 font-medium">inefficiency with intelligence</span>, so you can focus on what truly matters—growing your business, delighting customers, and staying ahead of the competition.
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6 }}
+                className="relative"
+              >
+                <div className="bg-secondary/30 backdrop-blur-sm p-8 rounded-xl border border-blue-500/20">
+                  <p className="text-2xl font-semibold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                    AI isn't the future. It's the unfair advantage you need today. 🚀
+                  </p>
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Business Comparison Section */}
       <section className="py-20 relative">
         <div className="cyber-grid absolute inset-0 opacity-10" />
@@ -433,7 +480,7 @@ export default function Home() {
                 >
                   <Card className="p-6 text-center bg-secondary/50 backdrop-blur-sm border-0 hover:bg-secondary/60 transition-all duration-300">
                     <Users2 className="w-10 h-10 mx-auto mb-4 text-purple-400" />
-                    <p className="text-2xl font-bold gradient-text">100+</p>
+                    <p className="text-2xl font-bold gradient-text">30+</p>
                     <p className="text-muted-foreground">Clients</p>
                   </Card>
                 </motion.div>
@@ -445,7 +492,7 @@ export default function Home() {
                 >
                   <Card className="p-6 text-center bg-secondary/50 backdrop-blur-sm border-0 hover:bg-secondary/60 transition-all duration-300">
                     <Rocket className="w-10 h-10 mx-auto mb-4 text-blue-400" />
-                    <p className="text-2xl font-bold gradient-text">250+</p>
+                    <p className="text-2xl font-bold gradient-text">50+</p>
                     <p className="text-muted-foreground">Projects</p>
                   </Card>
                 </motion.div>
