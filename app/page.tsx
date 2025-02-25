@@ -49,6 +49,12 @@ export default function Home() {
 
   const features = [
     {
+      icon: <Globe2 className="w-8 h-8" />,
+      title: "Mobile & Web Solutions",
+      description: "Custom mobile apps and websites that streamline your business operations and enhance customer engagement",
+      gradient: "from-red-500 to-orange-500",
+    },
+    {
       icon: <Brain className="w-8 h-8" />,
       title: "AI Workflow Automation",
       description: "Streamline your business processes with intelligent automation powered by cutting-edge AI",
@@ -66,12 +72,7 @@ export default function Home() {
       description: "Harness the power of language models fine-tuned for your industry",
       gradient: "from-pink-500 to-red-500",
     },
-    {
-      icon: <Mic className="w-8 h-8" />,
-      title: "Voice Agents",
-      description: "Natural voice interactions that transform customer experience",
-      gradient: "from-red-500 to-orange-500",
-    },
+
   ];
 
   const testimonials = [
